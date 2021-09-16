@@ -29,7 +29,7 @@ public class FactGetter {
                         .setSocketTimeout(30000)
                         .setRedirectsEnabled(false)
                         .build())
-                .build();
+                .build()
         ) {
             HttpGet request = new HttpGet(REMOTE_ADDRESS);
             request.setHeader(HttpHeaders.ACCEPT, ContentType.APPLICATION_JSON.getMimeType());

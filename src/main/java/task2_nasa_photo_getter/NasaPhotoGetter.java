@@ -9,7 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 import java.io.*;
-import java.net.URL;
+//import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class NasaPhotoGetter {
@@ -28,7 +28,7 @@ public class NasaPhotoGetter {
                         .setSocketTimeout(30000)
                         .setRedirectsEnabled(false)
                         .build())
-                .build();
+                .build()
         ) {
             HttpGet request = new HttpGet(REMOTE_ADDRESS);
             request.setHeader(HttpHeaders.ACCEPT, ContentType.APPLICATION_JSON.getMimeType());
@@ -39,7 +39,6 @@ public class NasaPhotoGetter {
                 String urlString = body.substring(body.indexOf(URL_TAG) + URL_TAG.length());
                 urlString = urlString.substring((0), urlString.indexOf('"'));
                 System.out.println(urlString);
-                URL url = new URL(urlString);
                 String fileName = urlString.substring(urlString.lastIndexOf('/') + 1);
                 System.out.println(fileName);
                 String filePath = "src" + SEP + "main" + SEP + "resources" + SEP + fileName;

@@ -2,6 +2,8 @@ package task1_fact_getter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class Fact {
     private String id;
     private String text;
@@ -76,16 +78,16 @@ public class Fact {
                 '}';
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Fact fact = (Fact) o;
-//        return Objects.equals(id, fact.id) && Objects.equals(text, fact.text) && Objects.equals(type, fact.type);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fact fact = (Fact) o;
+        return Objects.equals(id, fact.id) && Objects.equals(text, fact.text) && Objects.equals(type, fact.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
